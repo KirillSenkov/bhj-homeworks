@@ -1,5 +1,5 @@
 function getHole( index ) {
-    return document.getElementById("hole" + index)
+    return document.getElementById("hole" + index);
 }
 
 const outputDead = document.getElementById("dead");
