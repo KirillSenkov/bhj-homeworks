@@ -2,6 +2,7 @@
   let playing = true,
     activeHole = 1;
 
+  // от всей души желаю тебе всю оставшуюся жизнь to burn in callback hell
   const stop = () => playing = true,
     getHole = index => document.getElementById(`hole${index}`),
     deactivateHole = index =>
