@@ -17,6 +17,13 @@ class Game {
   }
 
   registerEvents() {
+    document.addEventListener('keyup', (event) => {
+      if (event.key.toLowerCase() === this.currentSymbol.textContent.toLowerCase()) {
+        this.success();
+      } else {
+        this.fail();
+      }
+    });
     /*
       TODO:
       Написать обработчик события, который откликается
@@ -33,6 +40,7 @@ class Game {
     this.currentSymbol = this.currentSymbol.nextElementSibling;
 
     if (this.currentSymbol !== null) {
+      console.log('this.currentSymbol>' + this.currentSymbol + '<');
       this.currentSymbol.classList.add('symbol_current');
       return;
     }
@@ -45,7 +53,7 @@ class Game {
   }
 
   fail() {
-    if (++this.lossElement.textContent === 5) {
+    if (++this.lossElement.textContent === 3) { // в задании написано "после 3 поражений игра заканчивается". не 5.
       alert('Вы проиграли!');
       this.reset();
     }
